@@ -8,13 +8,27 @@ internal class Buying {
     fun `one book costs 8 euros`() {
         val basket = Basket()
         basket.add(Book("The Philosopher's Stone"))
-        assertThat(basket.total()).isEqualTo(Euros(8))
+        assertThat(basket.total()).isEqualTo(Euros(800))
+    }
+
+    @Test
+    fun `two books costs 16 euros`() {
+        val basket = Basket()
+        basket.add(Book("The Philosopher's Stone"))
+        basket.add(Book("The Philosopher's Stone"))
+        assertThat(basket.total()).isEqualTo(Euros(1600))
     }
 }
 
-data class Euros(val amount: Int)
+data class Euros(val cents: Int)
 
 data class Book(val title: String)
+
+class Price {
+    companion object {
+        fun `for`(books: List<Book>) = Euros(books.size * 800)
+    }
+}
 
 class Basket {
     private val books: MutableList<Book> = mutableListOf()
@@ -23,5 +37,5 @@ class Basket {
         books += book
     }
 
-    fun total(): Euros = Euros(books.size * 8)
+    fun total(): Euros = Price.`for`(books)
 }
