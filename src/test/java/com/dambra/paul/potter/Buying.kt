@@ -50,7 +50,15 @@ internal class BasketsOfBooks {
                 Arguments.of(
                         "five different books have 25% discount and cost 3000 euro cents",
                         listOf("The Philosopher's Stone", "The Chamber of Secrets", "The Prisoner of Azkaban", "The Goblet of Fire", "The Order of the Phoenix"),
-                        Euros(3000))
+                        Euros(3000))//,
+//                Arguments.of(
+//                        "a basket that is one of the books and five different books has 25% discount on the complete set and no discount on the added book and cost 3800 euro cents",
+//                        listOf("The Philosopher's Stone", "The Chamber of Secrets", "The Prisoner of Azkaban", "The Goblet of Fire", "The Order of the Phoenix"),
+//                        Euros(3000)),
+//                Arguments.of(
+//                        "baskets that have more than one combination should have the largest discount",
+//                        listOf("The Philosopher's Stone", "The Philosopher's Stone", "The Chamber of Secrets", "The Chamber of Secrets", "The Prisoner of Azkaban", "The Prisoner of Azkaban", "The Goblet of Fire", "The Order of the Phoenix"),
+//                        Euros(5120))
         )
     }
 
