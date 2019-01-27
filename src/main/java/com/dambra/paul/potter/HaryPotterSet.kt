@@ -18,6 +18,8 @@ class HarryPotterSet {
         books[book.title] = true
     }
 
+    internal fun numberOfBooksInSet() = books.count { it.value }
+
     fun discount() = when (numberOfBooksInSet()) {
         2 -> Euros(80)
         3 -> Euros(240)
@@ -26,7 +28,10 @@ class HarryPotterSet {
         else -> Euros(0)
     }
 
-    fun numberOfBooksInSet() = books.count { it.value }
+    override fun toString(): String {
+        return "HarryPotterSet(books=$books)"
+    }
+
     companion object {
         const val BOOK_ONE = "The Philosopher's Stone"
         const val BOOK_TWO = "The Chamber of Secrets"
@@ -34,6 +39,5 @@ class HarryPotterSet {
         const val BOOK_FOUR = "The Goblet of Fire"
         const val BOOK_FIVE = "The Order of the Phoenix"
     }
-
 }
 

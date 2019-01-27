@@ -12,14 +12,14 @@ class Discount {
         private fun addBookToSmallestValidSet(potterSets: List<HarryPotterSet>, book: Book): List<HarryPotterSet> {
             val potterSetsWithoutThisBook = potterSets.filter { it.needs(book) }
 
-            if (potterSetsWithoutThisBook.any()) {
+            return if (potterSetsWithoutThisBook.any()) {
                 potterSetsWithoutThisBook.minBy { it.numberOfBooksInSet() }!!.add(book)
-                return potterSetsWithoutThisBook
+                potterSets
+            } else {
+                val x = HarryPotterSet()
+                x.add(book)
+                potterSets + x
             }
-
-            val x = HarryPotterSet()
-            x.add(book)
-            return potterSets + x
         }
     }
 }
